@@ -13,9 +13,11 @@ setnames(df, c("date", "time", "global_active_power", "global_reactive_power", "
 
 df$DateTime <- dmy_hms(paste(df$date, df$time))
 
-png(file = "plot1.png", width = 480, height = 480)
-hist(df$global_active_power, col = "red", xlab = "Global Active Power (kilowatts)",
-     ylab = "Frequency", main = "Global Active Power")
+png(file = "plot2.png", width = 480, height = 480)
+with(df, plot(df$DateTime, df$global_active_power, type= "l",
+              xlab = "",
+              ylab = "Global Active Power (kilowatts)"))
+
 dev.off()
 
 
